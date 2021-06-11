@@ -1,0 +1,36 @@
+/**
+ 
+ * Kelly Duval M. Viduya
+ * @param {string} textA
+ * @param {string} textB
+ * @return {number}
+ 
+ 
+ */
+
+var longestCommonSubsequence = function(textA, textB) {
+    
+   
+    
+      function helper(m, n){
+          // m and n will be the length of textA and textB
+        
+       if (m == 0 || n == 0) return 0;
+        
+        if (textA[n-1] == textB[n-1]){
+            // this statement checks if textA and textB matches
+            
+            return helper(m -1, n-1) + 1
+            
+        }
+        
+        return Math.max(helper(m-1, n), helper(n-1, m))
+        //This function returns the number with the highest value in the inputed parameter.
+    }
+    
+    let m = textA.length;
+    let n = textB.length;
+    
+    return helper(m,n) 
+    
+};
